@@ -64,10 +64,11 @@ function countdown() {
         const remHrs = Math.floor((msFromTodayToEnd % dayInMs) / hourInMs);
         console.log("ore restanti =", remHrs);
 
-        //IL RESTO DELLA DIVISIONE PER ORE/MINUTI VIENE USATO PER CALCOLARE I MINUTI/SEC
+        //IL RESTO DELLA DIVISIONE PER ORE VIENE USATO PER CALCOLARE I MINUTI
         const remMins = Math.floor((msFromTodayToEnd % hourInMs) / minuteInMs);
         console.log("minuti restanti =", remMins);
 
+        //IL RESTO DELLA DIVISIONE PER MINUTI VIENE USATO PER CALCOLARE I SEC
         const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
         console.log("secondi restanti =", remSecs);
 
