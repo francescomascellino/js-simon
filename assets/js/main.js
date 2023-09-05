@@ -63,15 +63,17 @@ const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
 console.log("secondi restanti =", remSecs);
 
 
-const timer = setInterval(countdown(msFromTodayToEnd, daysEl, hoursEl, minEl, secEl), 1000);
+const timer = setInterval(countdown(msFromTodayToEnd, remDays, remHrs, remMins, remSecs), 1000);
 
-function countdown(msFromTodayToEnd, daysEl, hoursEl, minEl, secEl) {
+function countdown(msFromTodayToEnd, remDays, remHrs, remMins, remSecs) {
+
     if (msFromTodayToEnd > 0) {
 
         daysEl.innerHTML = `${remDays}`;
         hoursEl.innerHTML = `${remHrs}`;
         minEl.innerHTML = `${remMins}`;
         secEl.innerHTML = `${remSecs}`;
+
     }
 
 };
