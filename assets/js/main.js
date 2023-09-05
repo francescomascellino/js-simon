@@ -22,11 +22,9 @@ const minuteInMs = secondInMS * 60;
 const hourInMs = minuteInMs * 60;
 const dayInMs = hourInMs * 24;
 
-const today = new Date();
-console.log("oggi", today);
 
-const todayInMs = today.getTime();
-console.log("today in ms from 1970 =", todayInMs);
+
+
 
 /* 
 function calcTomorrow(date, days) {
@@ -41,12 +39,18 @@ console.log("domani", tomorrow);
 const endTimer = new Date(2023, 8, 6, 9, 30)
 console.log("end timer", endTimer);
 
-const endTimerInMS = endTimer.getTime();
-console.log("end timer in ms from 1970 =", todayInMs);
-
-const timer = setInterval(countdown(), 1000);
+const timer = setInterval(countdown, 1000);
 
 function countdown() {
+
+    const today = new Date();
+    console.log("oggi", today);
+
+    const todayInMs = today.getTime();
+    console.log("today in ms from 1970 =", todayInMs);
+
+    const endTimerInMS = endTimer.getTime();
+    console.log("end timer in ms from 1970 =", todayInMs);
 
     //FINCHE' E' > 0 RESTA TEMPO
     const msFromTodayToEnd = endTimerInMS - todayInMs;
