@@ -12,10 +12,10 @@ Quanti millisecondi mi separano da domani alle 9:30?
 Esiste un oggetto JS in grado di gestire le date?
 Esistono dei metodi per trasformare una data in millisecondi? */
 
-const second = 1000;
-const minute = second * 60;
-const hour = minute * 60;
-const day = hour * 24;
+const secondInMS = 1000;
+const minuteInMs = secondInMS * 60;
+const hourInMs = minuteInMs * 60;
+const dayInMs = hourInMs * 24;
 
 const today = new Date();
 console.log("oggi", today);
@@ -39,5 +39,20 @@ console.log("end timer", endTimer);
 const endTimerInMS = endTimer.getTime();
 console.log("end timer in ms from 1970 =", todayInMs);
 
+//FINCHE' E' > 0 RESTA TEMPO
 const msFromTodayToEnd = endTimerInMS - todayInMs;
 
+//I GIORNI RESTANTI SONO UGUALI AI MS RIMANENTI DIVISO I GG IN MS
+const remDays = Math.floor(msFromTodayToEnd / dayInMs);
+console.log("giorni restanti =", remDays);
+
+//IL RESTO DELLA DIVISIONE PRECEDENTE VIENE USATO PER CALCOLARE LE ORE
+const remHrs = Math.floor((msFromTodayToEnd % dayInMs) / hourInMs);
+console.log("ore restanti =", remHrs);
+
+//IL RESTO DELLA DIVISIONE PER ORE/MINUTI VIENE USATO PER CALCOLARE I MINUTI/SEC
+const remMins = Math.floor((msFromTodayToEnd % hourInMs) / minuteInMs);
+console.log("minuti restanti =", remMins);
+
+const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
+console.log("secondi restanti =", remSecs);
