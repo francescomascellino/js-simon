@@ -22,18 +22,28 @@ const minuteInMs = secondInMS * 60;
 const hourInMs = minuteInMs * 60;
 const dayInMs = hourInMs * 24;
 
-/* 
+const resultDomani = document.getElementById("result");
+
+/* FUNZIONE PER AGGIUNGERE UN GIORNO ALLA DATA DI OGGI
+const oggi = new Date();
+
 function calcTomorrow(date, days) {
     date.setDate(date.getDate() + days);
     return date
 }
 
-const tomorrow = calcTomorrow(today, 1)
-console.log("domani", tomorrow);
+const domani = calcTomorrow(oggi, 1)
+console.log("domani", domani);
+
+const domaniMetodo2 = oggi.setDate(oggi.getDate() + 1);
+
+console.log("domani metodo 2", domaniMetodo2);
+
+resultDomani.innerHTML = domaniMetodo2;
  */
 
 //FISSA PUO' RESTARE FUORI
-const endTimer = new Date(2023, 8, 6, 9, 30)
+const endTimer = new Date(2023, 8, 6, 9, 30);
 // console.log("end timer", endTimer);
 
 const timer = setInterval(countdown, 1000);
