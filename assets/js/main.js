@@ -34,7 +34,7 @@ console.log("domani", tomorrow);
 
 //FISSA PUO' RESTARE FUORI
 const endTimer = new Date(2023, 8, 6, 9, 30)
-console.log("end timer", endTimer);
+// console.log("end timer", endTimer);
 
 const timer = setInterval(countdown, 1000);
 
@@ -42,13 +42,13 @@ function countdown() {
 
     //DEVE PRENDERE A OGNI LOOP IL VALORE CORRENTE
     const today = new Date();
-    console.log("oggi", today);
+    // console.log("oggi", today);
 
     const todayInMs = today.getTime();
-    console.log("today in ms from 1970 =", todayInMs);
+    // console.log("today in ms from 1970 =", todayInMs);
 
     const endTimerInMS = endTimer.getTime();
-    console.log("end timer in ms from 1970 =", todayInMs);
+    // console.log("end timer in ms from 1970 =", todayInMs);
 
     //DIFFRENZA TRA OGGI E IL TEMPO LIMITE IN MS
     const msFromTodayToEnd = endTimerInMS - todayInMs;
@@ -58,19 +58,19 @@ function countdown() {
 
         //I GIORNI RESTANTI SONO UGUALI AI MS RIMANENTI DIVISO I GG IN MS
         const remDays = Math.floor(msFromTodayToEnd / dayInMs);
-        console.log("giorni restanti =", remDays);
+        // console.log("giorni restanti =", remDays);
 
         //IL RESTO DELLA DIVISIONE PRECEDENTE VIENE USATO PER CALCOLARE LE ORE
         const remHrs = Math.floor((msFromTodayToEnd % dayInMs) / hourInMs);
-        console.log("ore restanti =", remHrs);
+        // console.log("ore restanti =", remHrs);
 
         //IL RESTO DELLA DIVISIONE PER ORE VIENE USATO PER CALCOLARE I MINUTI
         const remMins = Math.floor((msFromTodayToEnd % hourInMs) / minuteInMs);
-        console.log("minuti restanti =", remMins);
+        // console.log("minuti restanti =", remMins);
 
         //IL RESTO DELLA DIVISIONE PER MINUTI VIENE USATO PER CALCOLARE I SEC
         const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
-        console.log("secondi restanti =", remSecs);
+        // console.log("secondi restanti =", remSecs);
 
         daysEl.innerHTML = `${remDays}`;
         hoursEl.innerHTML = `${remHrs}`;
