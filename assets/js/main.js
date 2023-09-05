@@ -44,36 +44,37 @@ console.log("end timer", endTimer);
 const endTimerInMS = endTimer.getTime();
 console.log("end timer in ms from 1970 =", todayInMs);
 
-//FINCHE' E' > 0 RESTA TEMPO
-const msFromTodayToEnd = endTimerInMS - todayInMs;
+const timer = setInterval(countdown(), 1000);
 
-//I GIORNI RESTANTI SONO UGUALI AI MS RIMANENTI DIVISO I GG IN MS
-const remDays = Math.floor(msFromTodayToEnd / dayInMs);
-console.log("giorni restanti =", remDays);
+function countdown() {
 
-//IL RESTO DELLA DIVISIONE PRECEDENTE VIENE USATO PER CALCOLARE LE ORE
-const remHrs = Math.floor((msFromTodayToEnd % dayInMs) / hourInMs);
-console.log("ore restanti =", remHrs);
-
-//IL RESTO DELLA DIVISIONE PER ORE/MINUTI VIENE USATO PER CALCOLARE I MINUTI/SEC
-const remMins = Math.floor((msFromTodayToEnd % hourInMs) / minuteInMs);
-console.log("minuti restanti =", remMins);
-
-const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
-console.log("secondi restanti =", remSecs);
-
-
-const timer = setInterval(countdown(msFromTodayToEnd, remDays, remHrs, remMins, remSecs), 1000);
-
-function countdown(msFromTodayToEnd, remDays, remHrs, remMins, remSecs) {
+    //FINCHE' E' > 0 RESTA TEMPO
+    const msFromTodayToEnd = endTimerInMS - todayInMs;
 
     if (msFromTodayToEnd > 0) {
+
+        //I GIORNI RESTANTI SONO UGUALI AI MS RIMANENTI DIVISO I GG IN MS
+        const remDays = Math.floor(msFromTodayToEnd / dayInMs);
+        console.log("giorni restanti =", remDays);
+
+        //IL RESTO DELLA DIVISIONE PRECEDENTE VIENE USATO PER CALCOLARE LE ORE
+        const remHrs = Math.floor((msFromTodayToEnd % dayInMs) / hourInMs);
+        console.log("ore restanti =", remHrs);
+
+        //IL RESTO DELLA DIVISIONE PER ORE/MINUTI VIENE USATO PER CALCOLARE I MINUTI/SEC
+        const remMins = Math.floor((msFromTodayToEnd % hourInMs) / minuteInMs);
+        console.log("minuti restanti =", remMins);
+
+        const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
+        console.log("secondi restanti =", remSecs);
 
         daysEl.innerHTML = `${remDays}`;
         hoursEl.innerHTML = `${remHrs}`;
         minEl.innerHTML = `${remMins}`;
         secEl.innerHTML = `${remSecs}`;
 
+    } else {
+        clearInterval(countdown);
     }
 
 };
