@@ -22,10 +22,6 @@ const minuteInMs = secondInMS * 60;
 const hourInMs = minuteInMs * 60;
 const dayInMs = hourInMs * 24;
 
-
-
-
-
 /* 
 function calcTomorrow(date, days) {
     date.setDate(date.getDate() + days);
@@ -36,6 +32,7 @@ const tomorrow = calcTomorrow(today, 1)
 console.log("domani", tomorrow);
  */
 
+//FISSA PUO' RESTARE FUORI
 const endTimer = new Date(2023, 8, 6, 9, 30)
 console.log("end timer", endTimer);
 
@@ -43,6 +40,7 @@ const timer = setInterval(countdown, 1000);
 
 function countdown() {
 
+    //DEVE PRENDERE A OGNI LOOP IL VALORE CORRENTE
     const today = new Date();
     console.log("oggi", today);
 
@@ -52,9 +50,10 @@ function countdown() {
     const endTimerInMS = endTimer.getTime();
     console.log("end timer in ms from 1970 =", todayInMs);
 
-    //FINCHE' E' > 0 RESTA TEMPO
+    //DIFFRENZA TRA OGGI E IL TEMPO LIMITE IN MS
     const msFromTodayToEnd = endTimerInMS - todayInMs;
 
+    //FINCHE' E' > 0 RESTA TEMPO
     if (msFromTodayToEnd > 0) {
 
         //I GIORNI RESTANTI SONO UGUALI AI MS RIMANENTI DIVISO I GG IN MS
