@@ -24,8 +24,11 @@ const dayInMs = hourInMs * 24;
 
 const resultDomani = document.getElementById("result");
 
-/* FUNZIONE PER AGGIUNGERE UN GIORNO ALLA DATA DI OGGI
+// METODI PER AGGIUNGERE UN GIORNO ALLA DATA DI OGGI
+/* 
+//WORKING
 const oggi = new Date();
+console.log("oggi =", oggi);
 
 function calcTomorrow(date, days) {
     date.setDate(date.getDate() + days);
@@ -34,13 +37,27 @@ function calcTomorrow(date, days) {
 
 const domani = calcTomorrow(oggi, 1)
 console.log("domani", domani);
+ */
 
+/* 
+//WORKING
+const domani = new Date();
+
+domani.setDate(domani.getDate() + 1);
+domani.setHours(9, 30, 0, 0); 
+console.log("domani =", domani);
+ */
+
+/* 
+//NOT WORKING
 const domaniMetodo2 = oggi.setDate(oggi.getDate() + 1);
 
 console.log("domani metodo 2", domaniMetodo2);
 
 resultDomani.innerHTML = domaniMetodo2;
  */
+
+/* -------------------------------------------------- */
 
 //FISSA PUO' RESTARE FUORI
 const endTimer = new Date(2023, 8, 6, 9, 30);
