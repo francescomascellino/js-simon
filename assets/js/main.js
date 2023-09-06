@@ -25,7 +25,7 @@ const dayInMs = hourInMs * 24;
 const resultDomani = document.getElementById("result");
 
 // METODI PER AGGIUNGERE UN GIORNO ALLA DATA DI OGGI
-/* 
+
 //WORKING
 const oggi = new Date();
 console.log("oggi =", oggi);
@@ -35,32 +35,28 @@ function calcTomorrow(date, days) {
     return date
 }
 
-const domani = calcTomorrow(oggi, 1)
-console.log("domani", domani);
- */
+const domaniFunction = calcTomorrow(oggi, 0) //array di giorni, sunday è zero
+console.log("domani (funzione)", domaniFunction);
 
-/* 
 //WORKING
 const domani = new Date();
 
 domani.setDate(domani.getDate() + 1);
-domani.setHours(9, 30, 0, 0); 
+domani.setHours(9, 30, 0, 0);
 console.log("domani =", domani);
- */
 
-/* 
 //NOT WORKING
-const domaniMetodo2 = oggi.setDate(oggi.getDate() + 1);
+const domaniInline = oggi.setDate(oggi.getDate() + 1);
 
-console.log("domani metodo 2", domaniMetodo2);
+console.log("domani (inline))", domaniInline);
 
-resultDomani.innerHTML = domaniMetodo2;
- */
+resultDomani.innerHTML = `domani (funzione): ${domaniFunction} </br> domani: ${domani} </br> domani (inline): ${domaniInline}`;
+
 
 /* -------------------------------------------------- */
 
 //FISSA PUO' RESTARE FUORI
-const endTimer = new Date(2023, 8, 6, 9, 30);
+const endTimer = new Date(2023, 8, 6, 13, 0);
 // console.log("end timer", endTimer);
 
 const timer = setInterval(countdown, 1000);
@@ -99,13 +95,13 @@ function countdown() {
         const remSecs = Math.floor((msFromTodayToEnd % minuteInMs) / secondInMS);
         // console.log("secondi restanti =", remSecs);
 
-        daysEl.innerHTML = `${remDays}`;
-        hoursEl.innerHTML = `${remHrs}`;
+        daysEl.innerHTML = remDays //`${remDays}`;
+        hoursEl.innerHTML = remHrs //`${remHrs}`;
         minEl.innerHTML = `${remMins}`;
         secEl.innerHTML = `${remSecs}`;
 
     } else {
-        clearInterval(countdown);
+        clearInterval(timer);
     }
 
 };
